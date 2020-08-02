@@ -1,4 +1,5 @@
 import React, {useState,useEffect} from 'react'
+import './ImageList.css'
 
 const ImageCard = ({ descripton, urls }) => {
 
@@ -14,14 +15,18 @@ useEffect(() => {
    
 
 const spanValue = () => {
+  if ( !imageRef.current === null) {
+
+  
     const height = imageRef.current.clientHeight;
    const span = Math.ceil(height/10)
    setSpan(span)
+  }
 }
    
      
         return (
-            <div style={{gridRowEnd:`span ${span}`}}>
+            <div className='column'>
                 <img ref = {imageRef} alt={descripton} src={urls.regular}  />
             </div>
                 
